@@ -1,7 +1,7 @@
 require "rspec"
 require "methods.rb"
 
-describe "#uniq" do
+describe "uniq" do
 
     it "should take in an array" do
         expect {uniq([1,2,3])}.to_not raise_error()
@@ -49,6 +49,23 @@ describe "Array#two_sum" do
 
     it "only returns unique pairs of coords" do
         expect(arr.two_sum.all? { |(first, second)| first != second}).to be(true)
+    end
+
+end
+
+describe "my_transpose" do
+    subject(:arr) { [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8]
+            ] }
+    it "does not call the built in transpose method" do
+        expect(arr).to_not receive(:transpose)
+        my_transpose(arr)
+    end
+
+    it "returns a transposed version of the input array" do
+        expect(my_transpose(arr)).to eq(arr.transpose)
     end
 
 end

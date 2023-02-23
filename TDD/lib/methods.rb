@@ -19,3 +19,12 @@ class Array
         answer
      end
 end
+
+def my_transpose(arr)
+    answer = Array.new(arr.length) { Array.new(arr[0].length)}
+    arr.length.times do |row|
+        arr.length.times do |col|
+            
+        end
+    end
+end
