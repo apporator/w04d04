@@ -39,10 +39,16 @@ describe "Array#two_sum" do
         expect(answer.all? { |coords| (arr[coords[0]] + arr[coords[1]]) == 0}).to be(true)
     end
 
-    it "returns pairs where the first coordinate is less than the second"
+    it "returns pairs where the first coordinate is less than the second" do
+        expect(arr.two_sum.all? { |(first, second)| first < second}).to be(true)
+    end
 
-    it "returns coords where the first coordinate of a set is less than the first coord of the next second"
+    it "returns coords where the first coordinate of a set is less than the first coord of the next second" do
+        expect((0...arr.two_sum.length - 1).all? {|idx| arr.two_sum[idx][0] < arr.two_sum[idx+1][0]}).to be(true)
+    end
 
-    it "only returns unique pairs of coords"
+    it "only returns unique pairs of coords" do
+        expect(arr.two_sum.all? { |(first, second)| first != second}).to be(true)
+    end
 
 end
