@@ -21,10 +21,11 @@ class Array
 end
 
 def my_transpose(arr)
-    answer = Array.new(arr.length) { Array.new(arr[0].length)}
+    answer = Array.new(arr[0].length) { Array.new(arr.length)}
     arr.length.times do |row|
-        arr.length.times do |col|
-            
+        arr[0].length.times do |col|
+            answer[col][row] = arr[row][col]
         end
     end
+    answer
 end
