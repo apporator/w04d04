@@ -29,3 +29,22 @@ def my_transpose(arr)
     end
     answer
 end
+
+def stock_picker(stock_prices)
+    answer = []
+
+    (0...stock_prices.length-1).each do |buy_date|
+        (buy_date + 1...stock_prices.length).each  do |sell_date|
+            purchase_price = stock_prices[buy_date]
+            sell_price = stock_prices[sell_date]
+            profit = sell_price - purchase_price
+
+            if answer.empty? || (stock_prices[answer[1]] - stock_prices[answer[0]]) < profit
+                answer = [buy_date, sell_date]
+            end
+
+        end
+    end
+
+    return answer
+end

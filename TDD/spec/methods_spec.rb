@@ -69,3 +69,16 @@ describe "my_transpose" do
     end
 
 end
+
+describe "stock_picker" do
+    subject(:prices) {[3850,3752,9362,483,6394]}
+
+    it "returns a buy and sell date where sell date is after buy date" do
+        expect(stock_picker(prices)[0]< stock_picker(prices)[1]).to be(true)
+    end
+
+    it "picks the dates with the greatest positive delta in price" do
+        expect(stock_picker(prices)).to eq([3,4])
+    end
+
+end
